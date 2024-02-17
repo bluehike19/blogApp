@@ -3,6 +3,8 @@ const router = express.Router()
 const bcrypt = require('bcrypt')
 const verifyToken = require('../verifyToken')
 const User = require('../models/User')
+const Post = require('../models/Post')
+const Comment = require('../models/Comment')
 
 //UPDATE
 router.put("/:id", verifyToken, async (req, res) => {
@@ -16,6 +18,18 @@ router.put("/:id", verifyToken, async (req, res) => {
     } catch (err) {
         res.status(500).json(err)
     }
+})
+
+//DELETE
+router.delete("/:id", verifyToken ,async (req, res) => {
+   try {
+    await User.findByIdAndDelete(req.params.id)
+    await Post.deleteMany({userId:req.params.id})
+    await Comment.deleteMany({userId:req.params.id})
+    res.status(200).json("User has been deleted!")
+   } catch (err) {
+     res.status(500).json(err)
+   }
 })
 
 module.exports = router
