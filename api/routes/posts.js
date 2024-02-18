@@ -36,4 +36,7 @@ router.delete("/:id", verifyToken, async (req, res) => {
     }
 })
 
+//GET POST DETAILS
+router.get
+
 module.exports = router
