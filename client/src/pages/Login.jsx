@@ -7,7 +7,15 @@ const Login = () => {
     const [error, setError] = useState(false)
     const {setUser} = useContext(UserContext)
     
-    const handleLogin = async 
+    const handleLogin = async()=> {
+        try {
+            const res = await axios.post(URL+"/api/auth/login",{email,password},{withCredentials:true})
+            setUser(res.data)
+            NavigationPreloadManager("/")
+        } catch (err) {
+            setError(true)
+        }
+    }
 
   return (
     <div>Login</div>
