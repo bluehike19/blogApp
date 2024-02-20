@@ -1,12 +1,16 @@
-
+import {Route, Routes} from 'react-router-dom'
 import './App.css'
+import { UserContextProvider } from './context/UserContext'
+import Login from './pages/Login'
 
 function App() {
 
   return (
-   <div>
-    <h1>hello World</h1>
-   </div>
+ <UserContextProvider>
+  <Routes>
+    <Route exact path='/login' element={<Login />} />
+  </Routes>
+ </UserContextProvider>
   )
 }
 
