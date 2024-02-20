@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { UserContext } from '../context/UserContext'
 import { URL } from '../url'
+import { Link } from 'react-router-dom'
 
 
 const Login = () => {
@@ -21,7 +22,12 @@ const Login = () => {
     // }
 
   return (
-    <div>Login</div>
+    <>
+    <div className='flex items-center justify-between px-6 md:px-[200px] py-4'>
+      <h1>Blog Market</h1>
+      <h3><Link to='/register'>Register</Link></h3>
+    </div>
+    </>
   )
 }
 
