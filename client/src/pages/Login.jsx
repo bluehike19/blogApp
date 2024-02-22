@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { UserContext } from '../context/UserContext'
 import { URL } from '../url'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 
 const Login = () => {
@@ -9,17 +10,18 @@ const Login = () => {
     const [password, setPassword] = useState("")
     const [error, setError] = useState(false)
     const {setUser} = useContext(UserContext)
+    const navigate = useNavigate()
     
-    // const handleLogin = async()=> {
-    //     try {
-    //         const res = await axios.post(URL+"/api/auth/login",{email,password},{withCredentials:true})
-    //         setUser(res.data)
-    //         NavigationPreloadManager("/")
-    //     } catch (err) {
-    //         setError(true)
-    //         console.log(err)
-    //     }
-    // }
+    const handleLogin = async()=> {
+        try {
+            const res = await axios.post(URL+"/api/auth/login",{email,password},{withCredentials:true})
+            setUser(res.data)
+            NavigationPreloadManager("/")
+        } catch (err) {
+            setError(true)
+            console.log(err)
+        }
+    }
 
   return (
     <>
