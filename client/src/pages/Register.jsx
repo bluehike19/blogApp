@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { URL } from '../url'
+import { Link } from 'react-router-dom'
 
 const Register = () => {
 
@@ -25,7 +26,17 @@ const Register = () => {
   }
 
   return (
-    <div>Register</div> 
+    <>
+    <div className='flex items-center justify-between px-6 md:px-[200px] py-4'>
+      <h1 className='text-lg md:text-xl font-extrabold'>Blog Market</h1>
+      <h3><Link to='/login'>Login</Link></h3>
+    </div>
+    <div className='w-full flex justify-center items-center'>
+      <div className='flex flex-col justify-center items-center space-y-4 w-[80%] md:w-[25%]'>
+        <h1>Create an account</h1>
+      </div>
+    </div>
+    </>
   )
 }
 
