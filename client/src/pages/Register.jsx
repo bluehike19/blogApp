@@ -38,6 +38,8 @@ const Register = () => {
         <input onChange={(e)=>setPassword(e.target.value)} className='w-full px-4 py-2 border-2 border-black outline-0' type="text" placeholder='Enter your email' />
         <input onChange={(e)=>setEmail(e.target.value)} className='w-full px-4 py-2 border-2 border-black outline-0' type="text" placeholder='Enter your password'/>
         <button onClick={handleRegister} className='w-full px-4 py-4 text-lg font-bold text-white bg-black rounded-lg hover:bg-gray-500 hover:text-black'>Register</button>
+        {error && <h3 className='text-red-500 text-sm'>Something went wrong</h3>}
+        <div className='flex justify-center'></div>
       </div>
     </div>
     </>
