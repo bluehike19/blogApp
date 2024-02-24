@@ -3,6 +3,7 @@ import { UserContext } from '../context/UserContext'
 import { URL } from '../url'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import Footer from '../components/Footer'
 
 
 const Login = () => {
@@ -42,6 +43,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+    <Footer />
     </>
   )
 }

@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { URL } from '../url'
 import { Link, useNavigate } from 'react-router-dom'
+import Footer from '../components/Footer'
 
 const Register = () => {
 
@@ -45,6 +46,7 @@ const Register = () => {
         </div>
       </div>
     </div>
+    <Footer />
     </>
   )
 }
