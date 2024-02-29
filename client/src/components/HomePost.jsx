@@ -1,7 +1,7 @@
 import React from 'react'
 import { IF } from '../url'
 
-const HomePost = () => {
+const HomePost = ({post}) => {
   return (
     <div className='w-full flex mt-8 space-x-4'>
       <div className="w-[35%] h-[200px] flex justify-center items-center">
