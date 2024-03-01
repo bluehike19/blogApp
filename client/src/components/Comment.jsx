@@ -1,5 +1,8 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../context/UserContext'
+import { URL } from '../url'
+import { MdDelete } from 'react-icons/md'
+import axios from 'axios'
 
 const Comment = () => {
 
@@ -21,7 +24,7 @@ const Comment = () => {
         <p>{new Date(c.updatedAt).toString().slice(16,24)}</p>
         {user?._id===c?.userId ?
       <div className="flex items-center justify-center space-x-2">
-        <p className="cursor-pointer" onClick={()=>deleteComment(c._id)}></p>
+        <p className="cursor-pointer" onClick={()=>deleteComment(c._id)}><MdDelete/></p>
       </div>:""}
       </div>
       </div>
