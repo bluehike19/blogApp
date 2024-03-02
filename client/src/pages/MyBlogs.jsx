@@ -7,7 +7,9 @@ const MyBlogs = () => {
     const [loader, setLoader] = useState(false)
     const { user } = useContext(userContext) 
   return (
-    <div>MyBlogs</div>
+    <div>
+      <Navbar />
+    </div>
   )
 }
 
