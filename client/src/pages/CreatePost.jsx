@@ -11,6 +11,14 @@ const CreatePost = () => {
   const [cats, setCats] = useState([])
 
   const navigate = useNavigate()
+
+  const deleteCategory=(i)=>{
+    let updatedCats=[...cats]
+    updatedCats.push(cat)
+    setCat("")
+    setCats(updatedCats)
+  }
+
   return (
     <div>CreatePost</div>
   )
