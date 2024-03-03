@@ -1,9 +1,12 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import { UserContext } from '../context/UserContext'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import axios from 'axios'
 import { URL } from '../url'
+import Loader from '../components/Loader'
+import Footer from '../components/Footer'
+import HomePost from '../components/HomePost'
 
 const MyBlogs = () => {
     const {search} = useLocation()
@@ -29,9 +32,25 @@ const MyBlogs = () => {
     }
   }
 
+  useEffect(()=> {
+    fetchPosts()
+  },[search])
+
   return (
     <div>
       <Navbar />
+      <div className="px-8 md:px-[200px] min-h-[80vh]">
+        {loader?<div className='h-[40vh] flex justify-center items-center'><Loader/></div>:!noResults?
+        posts.map((post)=>(
+          <>
+          <Link to={user?`/posts/post/${post._id}`:"/login"}>
+            <HomePost key={post._id} post={post} />
+          </Link>
+          </>
+        )):<h3 className='text-center font-bold mt-16'>No posts available</h3>  
+      }
+      </div>
+      <Footer/>
     </div>
   )
 }
