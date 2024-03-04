@@ -14,6 +14,13 @@ const CreatePost = () => {
 
   const deleteCategory=(i)=>{
     let updatedCats=[...cats]
+    updatedCats.splice(i)
+    setCat("")
+    setCats(updatedCats)
+  }
+
+  const addCategory=(i)=>{
+    let updatedCats=[...cats]
     updatedCats.push(cat)
     setCat("")
     setCats(updatedCats)
