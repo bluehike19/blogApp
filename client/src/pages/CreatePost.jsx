@@ -26,6 +26,14 @@ const CreatePost = () => {
     setCats(updatedCats)
   }
 
+  
+  const changeCategory=(i)=>{
+    let updatedCats=[...cats]
+    updatedCats.push(cat)
+    setCat("")
+    setCats(updatedCats)
+  }
+
   return (
     <div>CreatePost</div>
   )
