@@ -1,6 +1,9 @@
 import React, { useContext, useState } from 'react'
 import { UserContext } from '../context/UserContext'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import { URL } from '../url'
+import Navbar from '../components/Navbar'
 
 const CreatePost = () => {
   const [title, setTitle] = useState('')
@@ -27,23 +30,47 @@ const CreatePost = () => {
   }
 
   
-  const addCategory=(i)=>{
-    let updatedCats=[...cats]
-    updatedCats.push(cat)
-    setCat("")
-    setCats(updatedCats)
+  const handleCreate=async ()=>{
+   e.preventDefault()
+   const post={
+    title,
+    desc,
+    username:user.username,
+    userId:user._id,
+    categories:cats
+   }
+
+   if(file){
+    const data = new FormData()
+    const filename=Date.now()+file.name 
+    data.append("img",filename)
+    data.append("file",file)
+    posts.photo=filename
+
+    try {
+      const imgUpload=await axios.post(URL+"/api/upload",data)
+    } catch (err) {
+      console.log(err)
+    }
+   }
+
+   try {
+    const res =  await axios.post(URL+"/api/posts/create",post,{withCredentials:true})
+    navigate("/posts/post/"+res.data._id)
+   } catch (err) {
+    console.log(err)
+   }
   }
 
-  
-  const changeCategory=(i)=>{
-    let updatedCats=[...cats]
-    updatedCats.push(cat)
-    setCat("")
-    setCats(updatedCats)
-  }
 
   return (
-    <div>CreatePost</div>
+    <div>
+      <Navbar />
+      <div className="px-6 md:px-[200px] mt-8">
+        <h1 className="font-bold md-text-2xl text-xl">Create a Post</h1>
+        <form className="w-full flex flex-col space-y-4 md:space-y-8 mt-4"></form>
+      </div>
+    </div>
   )
 }
 
