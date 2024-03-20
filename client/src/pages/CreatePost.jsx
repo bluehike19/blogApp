@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { URL } from '../url'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 const CreatePost = () => {
   const [title, setTitle] = useState('')
@@ -85,8 +86,12 @@ const CreatePost = () => {
               ))}
             </div>
           </div>
+          <textarea onChange={(e)=>setDesc(e.target.value)} cols={30} rows={15} className='px-4 py-2 outline-none' placeholder='Enter post description'>
+            <button onClick={handleCreate} className='bg-black w-full md:w-[20%] mx-auto text-white font-semibold px-4 py-2 md:text-xl text-lg'>Create</button>
+          </textarea>
         </form>
       </div>
+      <Footer />
     </div>
   )
 }
