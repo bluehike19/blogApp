@@ -68,7 +68,10 @@ const CreatePost = () => {
       <Navbar />
       <div className="px-6 md:px-[200px] mt-8">
         <h1 className="font-bold md-text-2xl text-xl">Create a Post</h1>
-        <form className="w-full flex flex-col space-y-4 md:space-y-8 mt-4"></form>
+        <form className="w-full flex flex-col space-y-4 md:space-y-8 mt-4">
+          <input onChange={(e)=>setTitle(e.target.value)} type="text" placeholder='Enter post title' className="px-4 py-2 outline-none" />
+          <input onChange={(e)=>setFile(e.target.files[0])} type="file" className="px-4 " />
+        </form>
       </div>
     </div>
   )
