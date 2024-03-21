@@ -37,7 +37,35 @@ const PostDetails = () => {
     fetchPost()
   },[postId])
 
-  
+  const fetchPostComments = async()=> {
+    setLoader(true)
+    try {
+      const res = await axios.get(URL+"/api/comments/post/"+postId)
+      setComments(res.data)
+      setLoader(false)
+    } catch (err) {
+      setLoader(true)
+      console.log(err)
+    }
+  }
+
+  useEffect(()=> {
+    fetchPostComments()
+  },[postId])
+
+  const postComment = async(e)=> {
+    e.preventDefault()
+    try {
+      const res= await axios.post(URL+"/api/comments/create",
+      {comment:comment,author:user.username,postId:postId,userId:user._id},
+      {withCredentials:true}
+      )
+      window.location.reload(true)
+    }
+    catch(err) {
+      console.log(err)
+    }
+  }
 
   return (
     <div>PostDetails</div>
