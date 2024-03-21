@@ -5,6 +5,7 @@ import axios from 'axios'
 import { URL } from '../url'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import {ImCross} from 'react-icons/im'
 
 const CreatePost = () => {
   const [title, setTitle] = useState('')
@@ -75,7 +76,7 @@ const CreatePost = () => {
           <div className="flex flex-col">
             <div className="flex items-center space-x-4 md:space-x-8">
               <input value={cat} onChange={(e)=>setCat(e.target.value)} className='px-4 py-2 outline-none' placeholder='Enter post category' type="text" />
-              <div className="bg-black text-white px-4 py-2 font-semibold cursor-pointer">Add</div>
+              <div onClick={addCategory} className="bg-black text-white px-4 py-2 font-semibold cursor-pointer">Add</div>
             </div>
             <div className="flex px-4 mt-3">
               {cat?.map((c,i)=> (
