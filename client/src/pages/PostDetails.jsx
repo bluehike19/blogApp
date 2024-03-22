@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
 import axios from 'axios'
+import Navbar from '../components/Navbar'
+import Loader from '../components/Loader'
 
 const PostDetails = () => {
 
@@ -68,7 +70,12 @@ const PostDetails = () => {
   }
 
   return (
-    <div>PostDetails</div>
+    <div>
+    <Navbar />
+    {loader?<div className='h-[80vh] flex justify-center items-center w-full'><Loader/></div>:<div className='flex justify-between items-center'>
+      <h1 className='text-2xl font-bold text-black md:text-3xl'>{post.title}</h1>
+      </div>}
+    </div>
   )
 }
 
