@@ -72,15 +72,23 @@ const PostDetails = () => {
   return (
     <div>
     <Navbar />
-    {loader?<div className='h-[80vh] flex justify-center items-center w-full'><Loader/></div>:<div className='flex justify-between items-center'>
+    {loader?<div className='h-[80vh] flex justify-center items-center w-full'><Loader/></div>:<div className='px-8 md:px-[200px] mt-8'>
+      <div className="flex justify-between items-center">
       <h1 className='text-2xl font-bold text-black md:text-3xl'>{post.title}</h1>
       {user?._id===post?.userId && <div className='flex items-center justify-center space-x-2'>
         <p className="cursor-pointer" onClick={()=>navigate("/edit/"+postId)}><BiEdit/></p>
         <p className="cursor-pointer" onClick={handleDeletePost}><MdDelete/></p>
         </div>}
-      </div>
-        // <div></div>
-      }
+        </div>
+        <div className='flex items-center justify-between mt-2 md:mt-4'>
+          <p>@{post.username}</p>
+          <div className="flex space-x-2">
+            <p>{new Date(post.updatedAt).toString().slice(0,15)}</p>
+            <p>{new Date(post.updatedAt).toString().slice(16,24)}</p>
+          </div>
+        </div>
+        <img src={IF+post.photo} className='w-full mx-auto mt-8' alt="" />
+      </div>}
     </div>
   )
 }
