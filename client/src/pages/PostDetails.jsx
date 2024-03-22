@@ -4,6 +4,7 @@ import { UserContext } from '../context/UserContext'
 import axios from 'axios'
 import Navbar from '../components/Navbar'
 import Loader from '../components/Loader'
+import Footer from '../components/Footer'
 
 const PostDetails = () => {
 
@@ -97,9 +98,22 @@ const PostDetails = () => {
               <div key={i} className="bg-gray-300 rounded-lg px-3 py-1">{c}</div>
               </>
             ))}
+
           </div>
         </div>
+        <div className="flex flex-col mt-4">
+          <h3 className='mt-6 mb-4 font-semibold'>Comments:</h3>
+          {comments?.map((c)=>(
+            <Comment key={c._id} c={c} post={post}/>
+          ))}
+        </div>
+
+          <div className='w-full flex flex-col mt-4 md:flex-row'>
+            <input onChange={(e)=>setComment(e.target.value)} type="text" placeholder='Write a comment ' className='md:w-[80%] outline-none py-2 px-4 mt-4 md:mt-0' />
+            <button className="bg-black text-sm text-white px-2 py-2 md:w-[20%] mt-4 md:mt-0">Add Comment</button>
+          </div>
       </div>}
+      <Footer />
     </div>
   )
 }
