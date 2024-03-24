@@ -5,6 +5,7 @@ import { URL } from '../url'
 import axios from 'axios'
 import Navbar from '../components/Navbar'
 import ProfilePost from '../components/ProfilePost'
+import Footer from '../components/Footer'
 
 const Profile = () => {
   const [username, setUsername] = useState("")
@@ -88,6 +89,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
