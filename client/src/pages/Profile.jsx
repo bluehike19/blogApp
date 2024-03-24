@@ -75,6 +75,13 @@ const Profile = () => {
             <ProfilePost key={p._id} p={p}/>
           ))}
         </div>
+        <div className="md:sticky md:top-12 flex justify-start md:justify-end items-start md:w-[30%] w-full md:items-end">
+          <div className="flex flex-col space-y-4 items-start">
+            <h1 className="text-xl font-bold mb-4">Profile</h1>
+            <input onChange={(e)=>setUsername(e.target.value)} value={username} className='outline-none px-4 py-2 text-gray-500' placeholder='Your username' type='text' />
+            <input onChange={(e)=>setEmail(e.target.value)} value={email} className='outline-none px-4 py-2 text-gray-500' placeholder='Your email' type='email' />
+          </div>
+        </div>
       </div>
     </div>
   )
