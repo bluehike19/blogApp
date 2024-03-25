@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
 import axios from 'axios'
@@ -52,6 +52,23 @@ const EditPost = () => {
     } catch (err) {
       console.log(err);
     }
+  }
+
+  useEffect(()=>{
+    fetchPosts()
+  },[postId])
+
+  const deleteCategory=(i)=>{
+    let updatedcats=[...cats]
+    updatedcats.splice(i)
+    setCats(updatedcats)
+  }
+
+  const addCategory=()=>{
+    let updatedcats=[...cats]
+    updatedcats.push(cat)
+    setCat("")
+    setCats(updatedcats)
   }
 
   return (
