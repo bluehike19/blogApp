@@ -81,7 +81,7 @@ const EditPost = () => {
           <input onChange={(e)=>setFile(e.target.value)} type="file" className='px-4' />
           <div className="flex flex-col">
             <div className="flex items-center space-x-4 md:space-x-8">
-              <input type="text" />
+              <input onChange={(e)} type="text" />
             </div>
           </div>
         </form>
