@@ -81,7 +81,8 @@ const EditPost = () => {
           <input onChange={(e)=>setFile(e.target.value)} type="file" className='px-4' />
           <div className="flex flex-col">
             <div className="flex items-center space-x-4 md:space-x-8">
-              <input onChange={(e)} type="text" />
+              <input onChange={(e)=>setCat(e.target.value)} value={cat} className='px-4 py-2 outline-none' placeholder='Enter post category' type="text" />
+              <div onClick={addCategory} className="bg-black text-white px-4 py-2 font-semibold cursor-pointer">Add</div>
             </div>
           </div>
         </form>
