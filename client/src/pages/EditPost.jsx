@@ -93,7 +93,8 @@ const EditPost = () => {
               ))}
             </div>
           </div>
-          
+          <textarea onChange={(e)=>setDesc(e.target.value)} value={desc} cols={30} rows={15} className='px-4 py-2 outline-none' placeholder='Enter post description'/>
+          <button onClick={handleUpdate} className="">Update</button>
         </form>
       </div>
     </div>
