@@ -84,7 +84,16 @@ const EditPost = () => {
               <input onChange={(e)=>setCat(e.target.value)} value={cat} className='px-4 py-2 outline-none' placeholder='Enter post category' type="text" />
               <div onClick={addCategory} className="bg-black text-white px-4 py-2 font-semibold cursor-pointer">Add</div>
             </div>
+            <div className="flex px-4 mt-3">
+              {cats?.map((c,i)=>(
+                <div className="flex justify-center items-center space-x-2 mr-4 bg-gray-200 px-2 py-1 rounded-md">
+                  <p>{c}</p>
+                  <p onClick={()=>deleteCategory(i)} className="text-white bg-black rounded-full cursor-pointer p-1 text-sm"><ImCross/></p>
+                </div>
+              ))}
+            </div>
           </div>
+          
         </form>
       </div>
     </div>
