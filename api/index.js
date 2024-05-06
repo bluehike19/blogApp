@@ -11,6 +11,9 @@ mongoose
   .then(() => console.log('DB connection success!'))
   .catch((err) => console.error('Error connecting to DB:', err))
 
+  app.get('/',(req, res)=> {
+    res.send("Hello from node API Server Updated")
+  })
 
 app.listen(5000, ()=> {
     console.log('Backend is running')
