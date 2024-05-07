@@ -17,3 +17,5 @@ const ProductSchema= mongoose.Schema({
         default: 0,
     },
 })
+
+const Product = mongoose.model("Product", ProductSchema)
